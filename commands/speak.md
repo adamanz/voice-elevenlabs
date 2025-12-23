@@ -1,53 +1,49 @@
 ---
-name: speak
-description: Speak text aloud using ElevenLabs v3 TTS with optional emotion tags
-arguments:
-  - name: text
-    description: Text to speak (supports audio tags like [excited], [whispers], [laughs])
-    required: false
-  - name: emotion
-    description: Emotion preset (excited, whispers, angry, sad, laughs, sighs)
-    required: false
+description: Speak text aloud using ElevenLabs v3 TTS with emotion tags
+allowed-tools: ["Bash", "Read"]
 ---
 
 # Speak Command (ElevenLabs v3)
 
-Use ElevenLabs v3 to convert text to expressive speech with emotion control.
+Speak text aloud using ElevenLabs with optional emotion control.
+
+## Usage
+
+```
+/voice-elevenlabs:speak [text with optional emotion tags]
+```
 
 ## Audio Tags (v3 Feature)
 
-You can add emotion and style with inline tags:
+Add emotion with inline tags:
 - `[excited]` - Enthusiastic delivery
 - `[whispers]` - Quiet, intimate
-- `[laughs]` or `[laughing]` - Natural laughter
+- `[laughs]` - Natural laughter
 - `[sighs]` - Thoughtful pause
 - `[angry]` - Intense, frustrated
-- `[sad]` or `[sorrowful]` - Melancholic
-- `[nervous]` - Hesitant, anxious
+- `[sad]` - Melancholic
+- `[nervous]` - Hesitant
 - `[shouting]` - Loud, emphatic
-- `[sarcastically]` - Dry humor
 
 ## Examples
 
-Simple: `/speak Hello, I finished your task!`
+- `/voice-elevenlabs:speak Hello world!`
+- `/voice-elevenlabs:speak [excited] The build passed!`
+- `/voice-elevenlabs:speak [whispers] Secret feature [laughs]`
 
-With emotion: `/speak [excited] Great news! The build passed!`
+## Implementation
 
-Combined: `/speak [whispers] Don't tell anyone, but... [laughs] I love coding!`
+Use this bash command to speak text via claude-voice-notifications:
 
-## Behavior
+```bash
+echo '{"hook_event_name": "Stop", "message": "TEXT_HERE"}' | claude-voice-notifications
+```
 
-1. If text provided, speak that text with any embedded audio tags
-2. If emotion argument provided, wrap text in that emotion tag
-3. If no text, summarize last response and speak it
-4. Use ElevenLabs v3 model (`eleven_v3_alpha`) for best expressiveness
-
-## Instructions
-
-Use the ElevenLabs MCP with these settings:
-- Model: `eleven_v3_alpha` (most expressive)
-- Voice: Use configured ELEVENLABS_VOICE_ID
-- Parse and preserve any [audio tags] in the text
-
-Text to speak: $ARGUMENTS.text
-Emotion preset: $ARGUMENTS.emotion
+Or use the ElevenLabs API directly:
+```bash
+curl -X POST "https://api.elevenlabs.io/v1/text-to-speech/JBFqnCBsd6RMkjVDRZzb" \
+  -H "xi-api-key: $ELEVENLABS_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"text": "TEXT_HERE", "model_id": "eleven_v3_alpha"}' \
+  --output /tmp/speech.mp3 && afplay /tmp/speech.mp3
+```

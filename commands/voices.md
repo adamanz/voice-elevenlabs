@@ -1,29 +1,34 @@
 ---
-name: voices
 description: List available ElevenLabs voices
+allowed-tools: ["Bash"]
 ---
 
 # List Available Voices
 
-Use the ElevenLabs MCP to fetch and display all available voices.
+Display available ElevenLabs voices that can be used with the speak command.
 
-## Instructions
+## Default Voices
 
-1. Call the ElevenLabs `get_voices` tool to retrieve available voices
-2. Display them in a formatted table with:
-   - Voice name
-   - Voice ID
-   - Description/labels
-   - Preview URL (if available)
+| Voice | ID | Style |
+|-------|-----|-------|
+| George | `JBFqnCBsd6RMkjVDRZzb` | Natural male (default) |
+| Adam | `pNInz6obpgDQGcFmaJgB` | Deep male |
+| Rachel | `21m00Tcm4TlvDq8ikWAM` | Natural female |
+| Domi | `AZnzlk1XvdvUeBnXmlld` | Young female |
 
-## Output Format
+## Change Voice
 
-Display voices in a clean table:
+Set the `ELEVENLABS_VOICE_ID` environment variable:
 
-| Voice | ID | Description |
-|-------|----|-----------|
-| George | JBFqnCBsd6RMkjVDRZzb | Natural, warm male voice |
-| Adam | pNInz6obpgDQGcFmaJgB | Deep, authoritative male |
-| Rachel | 21m00Tcm4TlvDq8ikWAM | Natural female voice |
+```bash
+export ELEVENLABS_VOICE_ID="pNInz6obpgDQGcFmaJgB"
+```
 
-Include a note about how to change voices with `/voice-config set-voice <id>`
+## Fetch All Voices
+
+To list all voices from your ElevenLabs account:
+
+```bash
+curl -s "https://api.elevenlabs.io/v1/voices" \
+  -H "xi-api-key: $ELEVENLABS_API_KEY" | jq '.voices[] | {name, voice_id}'
+```
