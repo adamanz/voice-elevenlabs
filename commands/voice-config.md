@@ -1,10 +1,6 @@
 ---
-name: voice-config
 description: Configure voice settings for ElevenLabs TTS
-arguments:
-  - name: action
-    description: Action to perform (show, set-voice, test)
-    required: false
+allowed-tools: ["Bash", "Read"]
 ---
 
 # Voice Configuration

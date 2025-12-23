@@ -1,10 +1,6 @@
 ---
-name: dialogue
 description: Generate multi-speaker dialogue using ElevenLabs v3 dialogue mode
-arguments:
-  - name: script
-    description: Dialogue script with speaker names (Speaker1: text, Speaker2: text)
-    required: true
+allowed-tools: ["Bash", "Read"]
 ---
 
 # Dialogue Command (ElevenLabs v3)

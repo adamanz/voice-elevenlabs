@@ -1,13 +1,6 @@
 ---
-name: create-voice
 description: Create a custom AI voice from a text description using Voice Design v3
-arguments:
-  - name: description
-    description: Natural language description of the voice you want
-    required: true
-  - name: name
-    description: Name for the new voice
-    required: false
+allowed-tools: ["Bash", "Read"]
 ---
 
 # Create Voice Command (Voice Design v3)

@@ -1,13 +1,6 @@
 ---
-name: transcribe
 description: Transcribe audio to text using ElevenLabs Scribe v2
-arguments:
-  - name: file
-    description: Path to audio file to transcribe
-    required: false
-  - name: url
-    description: URL of audio to transcribe
-    required: false
+allowed-tools: ["Bash", "Read"]
 ---
 
 # Transcribe Command (Scribe v2)
