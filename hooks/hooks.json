@@ -1,0 +1,22 @@
+{
+  "hooks": [
+    {
+      "event": "Stop",
+      "type": "command",
+      "command": "claude-voice-notifications",
+      "description": "Announce when Claude finishes responding"
+    },
+    {
+      "event": "SubagentStop",
+      "type": "command",
+      "command": "claude-voice-notifications",
+      "description": "Announce when a subagent completes its task"
+    },
+    {
+      "event": "Notification",
+      "type": "command",
+      "command": "claude-voice-notifications",
+      "description": "Announce when Claude needs permission or input"
+    }
+  ]
+}
