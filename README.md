@@ -2,9 +2,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-Plugin-blueviolet)](https://claude.ai/code)
-[![ElevenLabs](https://img.shields.io/badge/ElevenLabs-TTS-FF6B35)](https://elevenlabs.io)
+[![ElevenLabs v3](https://img.shields.io/badge/ElevenLabs-v3-FF6B35)](https://elevenlabs.io/v3)
 
-> Add natural voice capabilities to Claude Code using ElevenLabs AI voices.
+> Add natural voice capabilities to Claude Code using ElevenLabs v3 - the most expressive AI voice model.
 
 ## Install
 
@@ -41,16 +41,61 @@ npm install -g claude-voice-notifications
 
 | Command | Description |
 |---------|-------------|
-| `/speak [text]` | Speak text aloud (or summarize last response) |
+| `/speak [text]` | Speak text with emotion tags `[excited]`, `[whispers]`, etc. |
+| `/dialogue` | Generate multi-speaker conversations |
+| `/create-voice` | Create custom voice from text description |
+| `/transcribe` | Convert audio to text (Scribe v2) |
 | `/voices` | List available ElevenLabs voices |
 | `/voice-config` | View and modify voice settings |
 
-## Features
+## ElevenLabs v3 Features
 
-- **Voice Notifications** - Hear when Claude finishes tasks or needs input
-- **ElevenLabs TTS** - Natural AI voices via MCP integration
-- **Voice Agent** - Conversational assistant that speaks responses
-- **Customizable** - Choose from multiple voices
+### Audio Tags (Emotion Control)
+
+Add emotional nuance to any speech:
+
+```
+/speak [excited] We did it! The tests passed!
+/speak [whispers] Don't tell anyone, but... [laughs] I love this feature!
+/speak [nervous] Did the deploy work? [relieved] Oh thank goodness.
+```
+
+**Available tags:**
+- `[excited]` - Enthusiastic
+- `[whispers]` - Quiet, intimate
+- `[laughs]` / `[laughing]` - Natural laughter
+- `[sighs]` - Thoughtful pause
+- `[angry]` - Intense
+- `[sad]` - Melancholic
+- `[nervous]` - Hesitant
+- `[shouting]` - Loud
+- `[sarcastically]` - Dry humor
+
+### Multi-Speaker Dialogue
+
+Generate natural conversations:
+
+```
+/dialogue "Alice: Hey, did you see the new feature?
+Bob: [excited] Yes! It's incredible!
+Alice: [laughs] I knew you'd love it."
+```
+
+### Voice Design v3
+
+Create custom voices from descriptions:
+
+```
+/create-voice "warm female narrator, mid-30s, slight British accent, professional"
+```
+
+### Scribe v2 Transcription
+
+Convert speech to text:
+
+```
+/transcribe file:~/meeting.mp3
+```
 
 ## Voices
 
@@ -86,4 +131,4 @@ Adam Anzuoni - [@adamanz](https://github.com/adamanz)
 
 ---
 
-**Keywords:** claude-code, plugin, voice, tts, text-to-speech, elevenlabs, notifications, accessibility
+**Keywords:** claude-code, plugin, voice, tts, text-to-speech, elevenlabs, v3, audio-tags, dialogue, transcription, scribe, notifications, accessibility
