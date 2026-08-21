@@ -108,6 +108,17 @@ Convert speech to text:
 
 Change voice: Set `ELEVENLABS_VOICE_ID` environment variable.
 
+## Unmoved Shorts
+
+Daily faceless stoic Shorts live under `unmoved/`. Daniel is the picked voice; the `voice_id` is unresolved until `unmoved/scripts/resolve_voice.py` confirms it against Box sample `2418917961003`. Do not assume premade Daniel `onwK4e9ZLuTAKqWW03F9`.
+
+```bash
+unmoved/tests/test_pipeline.sh
+with-elevenlabs-key unmoved/scripts/render_short.sh --wound waiting-on-read
+```
+
+See `unmoved/README.md` and `unmoved/DANIEL.md`. Does not publish to YouTube.
+
 ## Hooks
 
 Auto-triggers on these events:
