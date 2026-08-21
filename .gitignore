@@ -11,3 +11,9 @@ node_modules/
 
 # Logs
 *.log
+
+# Unmoved render output (VO + remux). Keep notes and stills.
+unmoved/out/*
+!unmoved/out/.gitkeep
+unmoved/scripts/__pycache__/
+__pycache__/

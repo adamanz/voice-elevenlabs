@@ -1,0 +1,11 @@
+{
+  "slug": "waiting-on-read",
+  "hook": "You wait six hours for a two-word reply.",
+  "script_file": "waiting-on-read.txt",
+  "stills": [
+    {"id": "01-wait", "tone": "0x1a1612", "whisper": "wait"},
+    {"id": "02-read", "tone": "0x101418", "whisper": "read"},
+    {"id": "03-draft", "tone": "0x16120e", "whisper": "draft"},
+    {"id": "04-alone", "tone": "0x0e1014", "whisper": "alone"}
+  ]
+}

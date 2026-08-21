@@ -1,0 +1,39 @@
+{
+  "brand": "Unmoved",
+  "model_id": "eleven_v3",
+  "box": {
+    "stoic_daily_folder_id": "410644410730",
+    "stoic_daily_name": "Unmoved — Stoic Daily",
+    "voice_clips_folder_id": "410846433426",
+    "voice_clips_name": "11L Voice Clips",
+    "daniel_sample_file_id": "2418917961003",
+    "daniel_sample_name": "daniel-deep-stoic-baritone.mp3",
+    "daniel_sample_duration_s": 4.0,
+    "daniel_sample_note": "4.0s sample only. Not a full VO."
+  },
+  "voices": {
+    "brian": {
+      "label": "Brian",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "status": "verified",
+      "kind": "premade",
+      "used_for": "live first Unmoved Short",
+      "evidence": [
+        "Live first Short used this id.",
+        "Default VOICE_ID in adamanz/elevenlabs-box-imessage-skill scripts/tts_to_box.sh"
+      ]
+    },
+    "daniel": {
+      "label": "Daniel",
+      "voice_id": null,
+      "status": "unresolved",
+      "kind": "unknown",
+      "sample_file": "daniel-deep-stoic-baritone.mp3",
+      "sample_box_file_id": "2418917961003",
+      "picked": true,
+      "do_not_assume_voice_id": "onwK4e9ZLuTAKqWW03F9",
+      "do_not_assume_reason": "onwK4e9ZLuTAKqWW03F9 is the premade Daniel (Steady Broadcaster) in adamanz/podcast-generator-mcp. The Box sample name looks like a Voice Library PVC label. Do not use the premade id unless resolve_voice.py verifies it against the sample or the ElevenLabs account.",
+      "resolution": "Run unmoved/scripts/resolve_voice.py with ELEVENLABS_API_KEY, or set UNMOVED_VOICE_ID after confirming the library/history match."
+    }
+  }
+}
